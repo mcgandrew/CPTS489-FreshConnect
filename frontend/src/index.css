@@ -23,7 +23,7 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: #45a049;
   text-decoration: none;
 }
 .pages{
@@ -33,7 +33,7 @@ header a {
 }
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
 }
 .nav-item {
   text-decoration: none;
@@ -64,7 +64,7 @@ header a {
 }
 .username {
   font-weight: 600;
-  color: #333;
+  color: #fc6c04;
   margin-right: 1rem;
 }
 
