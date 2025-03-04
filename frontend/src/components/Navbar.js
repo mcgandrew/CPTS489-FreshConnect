@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 
 const Navbar = () => {
-    const [isLoggedIn] = useState(false);
+    const [isLoggedIn] = useState(true);
     return (
         <header>
             <div className="container">

@@ -75,7 +75,7 @@ const Login = () => {
                         </div>
                     )}
                     
-                    <button className="btn btn-primary login-btn">
+                    <button className="login-btn">
                         {isLogin ? 'Login' : 'Create Account'}
                     </button>
                 </form>
