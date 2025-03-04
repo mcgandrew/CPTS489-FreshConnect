@@ -10,11 +10,13 @@ import Login from "./pages/Login"
 import Navbar from "./components/Navbar"
 import Orders from "./pages/Orders"
 import Account from "./pages/Account"
+import ScrollToTop from "./components/ScrollToTop"
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop/>
         <Navbar/>
         <div className="pages">
           <Routes>

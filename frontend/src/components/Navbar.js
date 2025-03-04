@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import Logo from "./Logo"
 
 const Navbar = () => {
     const [isLoggedIn] = useState(true);
@@ -7,7 +8,7 @@ const Navbar = () => {
         <header>
             <div className="container">
                 <Link to="/">
-                    <h1>Fresh Connect</h1>
+                    <Logo />
                 </Link>
                 <nav className="nav-links">
                         <Link to="/shop" className="nav-item">Shop</Link>

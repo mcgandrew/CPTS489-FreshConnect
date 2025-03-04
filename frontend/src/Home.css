@@ -50,12 +50,19 @@
     transition: all 0.3s ease;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
+    text-align: center;
+    display: inline-flex; /* Changed from inline-block to inline-flex */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    line-height: normal; /* Normalize line height */
 }
 
+/* Remove duplicate padding from btn-primary as it's already in .btn */
 .btn-primary {
     background-color: #45a049;
     color: white;
     border: none;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -64,12 +71,13 @@
 
 .btn-secondary {
     background-color: transparent;
-    color: #45a049;
-    border: 2px solid #45a049;
+    color: #45a049 !important;
+    border: 2px solid #45a049 !important;
+    text-decoration: none;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(69, 160, 73, 0.1);
+    background-color: rgba(69, 160, 73, 0.1) !important;
 }
 
 .btn-large {
