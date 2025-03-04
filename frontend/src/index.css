@@ -173,3 +173,16 @@ header a {
   padding: 0.6rem;
   margin-bottom: 0.5rem;
 }
+
+.sell-btn-primary {
+  color: white;
+  text-decoration: none;
+  background-color: #4CAF50;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.sell-btn-primary:hover {
+  background-color: #45a049;
+}
