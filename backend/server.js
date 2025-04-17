@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import productRoutes from "./routes/productRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config({ path: '.env'}) // load environment variables
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
     res.json({mssg: 'Welcome to FreshConnect!'})
 })
 app.use('/products', productRoutes)
+app.use('/users', userRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
