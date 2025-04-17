@@ -1,10 +1,13 @@
-require('dotenv').config()
+import express from "express"
+import mongoose from "mongoose"
+import dotenv from "dotenv"
+import productRoutes from "./routes/productRoutes.js"
 
-const express = require('express')
-const mongoose = require('mongoose')
+dotenv.config({ path: '.env'}) // load environment variables
 
 // express app
 const app = express()
+app.use(express.json())
 
 // middleware
 app.use((req, res, next) => {
@@ -16,6 +19,7 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.json({mssg: 'Welcome to FreshConnect!'})
 })
+app.use('/products', productRoutes)
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
@@ -29,5 +33,4 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(error)
     })
 
-
-
+export default app

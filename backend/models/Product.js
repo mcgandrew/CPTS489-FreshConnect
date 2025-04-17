@@ -1,10 +1,6 @@
 import mongoose from 'mongoose';
 
 const productSchema = mongoose.Schema({
-    id:{
-        type: Number,
-        required: true
-    },
     name:{
         type: String,
         required: true
@@ -32,7 +28,7 @@ const productSchema = mongoose.Schema({
     },
     image:{
         type: String,
-        required: false
+        default: ''
     },
     description:{
         type: String,
