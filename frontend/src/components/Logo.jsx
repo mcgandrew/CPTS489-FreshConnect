@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Logo() {
+const Logo = () => {
   return (
     <svg
       version="1.1"
