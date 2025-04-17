@@ -1,18 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "./contexts/UserContext.jsx";
 
 // pages and components
-import Home from "./pages/Home"
-import Shop from "./pages/Shop"
-import Sell from "./pages/Sell"
-import About from "./pages/About"
-import Contact from "./pages/Contact"
-import Login from "./pages/Login"
-import Navbar from "./components/Navbar"
-import Orders from "./pages/Orders"
-import Account from "./pages/Account"
-import ScrollToTop from "./components/ScrollToTop"
+import Home from "./pages/Home.jsx";
+import Shop from "./pages/Shop.jsx";
+import Sell from "./pages/Sell.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
+import Login from "./pages/Login.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Orders from "./pages/Orders.jsx";
+import Account from "./pages/Account.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
-function App() {
+const App = () => {
+  // role of current user is always known within App
+  const { role } = useContext(UserContext);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,7 +26,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route
-              path="/"
+              path="/home"
               element={<Home/>}
             />
             <Route
@@ -57,6 +62,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

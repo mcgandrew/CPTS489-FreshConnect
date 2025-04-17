@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import Logo from "./Logo"
+import Logo from "./Logo.jsx"
 
 const Navbar = () => {
     const [isLoggedIn] = useState(true);
@@ -37,4 +37,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;

@@ -19,4 +19,4 @@ const Sell = () => {
     )
 }
 
-export default Sell
+export default Sell;
