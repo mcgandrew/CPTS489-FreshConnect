@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { UserContext } from "../contexts/UserContext.jsx";
 import Logo from "./Logo.jsx"
 
 const Navbar = () => {
     const [isLoggedIn] = useState(true);
+    // use context to get current user role
+    const { role } = useContext(UserContext);
+
     return (
         <header>
             <div className="container">
@@ -19,8 +23,10 @@ const Navbar = () => {
                         <>
                             <Link to="/orders" className="nav-item">My Orders</Link>
                             <Link to="/account" className="nav-item">My Account</Link>
-                        </>
-                    )}
+                        </> )}
+                        {role === "admin" && ( // only display admin features when user is admin
+                            <Link to="/home" className="nav-item">Admin</Link> 
+                        )}
                     </nav>
                     <div className="auth-buttons">
                         {!isLoggedIn ? (

@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { UserContext } from '../contexts/UserContext.jsx';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);
     const [error, setError] = useState('');
+    const { setRoleAndToken } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,7 +19,7 @@ const Login = () => {
         setError('');
         
         // Basic validation
-        if (!email || !password) {
+        if (!username || !password) {
             setError('All fields must be filled');
             return;
         }
@@ -23,10 +28,49 @@ const Login = () => {
             setError('Passwords do not match');
             return;
         }
-        
-        console.log('Form submitted:', { email, password, isLogin });
-        // Here you would typically connect to your backend
-        // For now, just log the attempt
+
+        // login
+        if (isLogin) {
+            try {
+                // login with api
+                const response = await axios.post('http://localhost:4000/users/login', {
+                    username,
+                    password
+                });
+                
+                // update token and redirect to home
+                if (response.status === 200) {
+                    const { token } = response.data;
+                    if (token) setRoleAndToken(token); // use context
+                    navigate('/home');
+                } else {
+                    setError(response.data.error);
+                }
+            } catch (error) {
+                setError(error.response?.data?.error || 'Failed to login');
+            }
+        }
+        // register
+        else {
+            try {
+                // register with api
+                const response = await axios.post('http://localhost:4000/users/register', {
+                    username,
+                    password
+                });
+
+                // redirect to login
+                if (response.status === 200) {
+                    setConfirmPassword('');
+                    setIsLogin(true);
+                    navigate('/login');
+                } else {
+                    setError(response.data.error);
+                }
+            } catch (error) {
+                setError(error.response?.data?.error || 'Failed to register');
+            }
+        }
     };
 
     return (
@@ -41,13 +85,13 @@ const Login = () => {
                     {error && <div className="error">{error}</div>}
                     
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="username">Username</label>
                         <input 
-                            type="email" 
-                            id="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
-                            placeholder="Enter your email"
+                            type="text" 
+                            id="username"
+                            onChange={(e) => setUsername(e.target.value)}
+                            value={username}
+                            placeholder="Enter your username"
                         />
                     </div>
                     

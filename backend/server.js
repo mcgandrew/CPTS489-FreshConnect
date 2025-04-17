@@ -1,6 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
+import cors from "cors"
 import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 
@@ -8,6 +9,7 @@ dotenv.config({ path: '.env'}) // load environment variables
 
 // express app
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 // middleware

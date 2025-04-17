@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import '../Home.css'; 
 import Logo from '../components/Logo.jsx';
+import '../Home.css'; 
 
 const Home = () => {
     return (
