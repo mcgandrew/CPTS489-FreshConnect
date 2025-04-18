@@ -85,9 +85,15 @@ const About = () => {
           </div>
           <div className="team-member">
             <img src="/images/Andy.jpg" alt="Team Member Andy" />
-            <h3>Andrew McGann</h3>
-            <p className="member-title">Co-Founder</p>
+            <h3>Andy McGann</h3>
+            <p className="member-title">Co-Founder & Software Engineer</p>
             <p>Andy is a graduating Senior in Computer Science at Washington State University. He is from DuPont, WA and loves fresh produce!</p>
+          </div>
+          <div className="team-member">
+            <img src="/images/Varkey.jpg" alt="Team Member Andrew" />
+            <h3>Andrew Varkey</h3>
+            <p className="member-title">Co-Founder & Software Engineer</p>
+            <p>Andrew is a Computer Science student at Washington State University, specializing in Cybersecurity. Originally from Federal Way, WA, he is passionate about protecting digital systems and advancing secure technologies.</p>
           </div>
         </div>
       </section>
