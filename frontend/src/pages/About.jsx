@@ -81,8 +81,8 @@ const About = () => {
           <div className="team-member">
             <img src="/images/pfp.jpg" alt="Team Member Isaiah" />
             <h3>Isaiah Doan</h3>
-            <p className="member-title">Co-Founder & Position</p>
-            <p>Brief bio about the team member's background and passion for local food systems.</p>
+            <p className="member-title">Co-Founder & Software Engineer</p>
+            <p>Born and raised in Spokane, WA, Isaiah is an up and coming Software Engineer who is currently studying for his third year at Washington State University</p>
           </div>
           {/* Add more team members as needed */}
         </div>
@@ -93,7 +93,7 @@ const About = () => {
         <p>Whether you're a local farmer looking to reach more customers or a consumer seeking the freshest local produce, we'd love to welcome you to the Fresh Connect community.</p>
         <div className="join-buttons">
           <a href="/shop" className="btn btn-primary">Start Shopping</a>
-          <a href="/sell" className="btn btn-secondary">Become a Vendor</a>
+          <a href="/sell" className="btn-vendor">Become a Vendor</a>
         </div>
       </section>
     </div>
