@@ -77,14 +77,18 @@ const About = () => {
         <h2>Meet Our Team</h2>
         <p className="team-intro">We're a group of passionate individuals committed to transforming how our community accesses local food.</p>
         <div className="team-grid">
-          {/* You can add team members here with photos and bios if desired */}
           <div className="team-member">
             <img src="/images/pfp.jpg" alt="Team Member Isaiah" />
             <h3>Isaiah Doan</h3>
-            <p className="member-title">Co-Founder & Position</p>
+            <p className="member-title">Co-Founder</p>
             <p>Brief bio about the team member's background and passion for local food systems.</p>
           </div>
-          {/* Add more team members as needed */}
+          <div className="team-member">
+            <img src="/images/Andy.jpg" alt="Team Member Andy" />
+            <h3>Andrew McGann</h3>
+            <p className="member-title">Co-Founder</p>
+            <p>Andy is a graduating Senior in Computer Science at Washington State University.</p>
+          </div>
         </div>
       </section>
 
