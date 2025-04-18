@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import cors from "cors"
 import productRoutes from "./routes/productRoutes.js"
+import orderRoutes from "./routes/orderRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config({ path: '.env'}) // load environment variables
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'Welcome to the Fresh Connect' })
 })
 app.use('/products', productRoutes)
+app.use('/orders', orderRoutes)
 app.use('/users', userRoutes)
 
 // connect to db
