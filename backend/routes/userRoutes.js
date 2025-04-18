@@ -2,7 +2,8 @@ import express from "express"
 import { 
     registerUser,
     loginUser,
-    getCurrentUser
+    getCurrentUser,
+    logoutUser
 } from "../controllers/userController.js"
 import {
     auth,
@@ -17,6 +18,9 @@ router.post('/register', registerUser)
 
 // POST an existing User
 router.post('/login', loginUser)
+
+// POST logout User
+router.post('/logout', logoutUser);
 
 // GET the current User
 router.get('/current', auth, getCurrentUser)

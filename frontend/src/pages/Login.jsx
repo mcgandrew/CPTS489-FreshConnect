@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../contexts/UserContext.jsx';
@@ -9,14 +9,26 @@ const Login = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [isLogin, setIsLogin] = useState(true);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const { setRoleAndToken } = useContext(UserContext);
     const navigate = useNavigate();
+
+    // Clear success message after 3 seconds
+    useEffect(() => {
+        if (success) {
+            const timer = setTimeout(() => {
+                setSuccess('');
+            }, 3000);
+            return () => clearTimeout(timer);
+        }
+    }, [success]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         // Clear previous errors
         setError('');
+        setSuccess('');
         
         // Basic validation
         if (!username || !password) {
@@ -42,7 +54,11 @@ const Login = () => {
                 if (response.status === 200) {
                     const { token } = response.data;
                     if (token) setRoleAndToken(token); // use context
-                    navigate('/home');
+                    setSuccess(`Welcome back, ${username}! Redirecting to homepage...`);
+                    // Delay navigation slightly to show the success message
+                    setTimeout(() => {
+                        navigate('/');
+                    }, 1500);
                 } else {
                     setError(response.data.error);
                 }
@@ -62,8 +78,10 @@ const Login = () => {
                 // redirect to login
                 if (response.status === 200) {
                     setConfirmPassword('');
-                    setIsLogin(true);
-                    navigate('/login');
+                    setSuccess('Registration successful! You can now log in.');
+                    setTimeout(() => {
+                        setIsLogin(true);
+                    }, 1500);
                 } else {
                     setError(response.data.error);
                 }
@@ -83,6 +101,7 @@ const Login = () => {
 
                 <form className="login-form" onSubmit={handleSubmit}>
                     {error && <div className="error">{error}</div>}
+                    {success && <div className="success">{success}</div>}
                     
                     <div className="form-group">
                         <label htmlFor="username">Username</label>

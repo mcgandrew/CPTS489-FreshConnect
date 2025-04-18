@@ -10,7 +10,9 @@ dotenv.config({ path: '.env'}) // load environment variables
 // express app
 const app = express()
 app.use(cors())
-app.use(express.json())
+
+app.use(express.json({ limit: '50mb' })) // Increase from default 1mb to 50mb
+app.use(express.urlencoded({ limit: '50mb', extended: true }))
 
 // middleware
 app.use((req, res, next) => {
@@ -20,7 +22,7 @@ app.use((req, res, next) => {
 
 // routes
 app.get('/', (req, res) => {
-    res.json({mssg: 'Welcome to FreshConnect!'})
+    res.json({ message: 'Welcome to the Fresh Connect' })
 })
 app.use('/products', productRoutes)
 app.use('/users', userRoutes)

@@ -98,17 +98,17 @@ const Home = () => {
                     <div className="testimonial-card">
                         <div className="quote-icon">"</div>
                         <p className="quote">Fresh Connect has completely changed how I shop for groceries. The quality and taste of everything I've ordered is incredible!</p>
-                        <p className="customer">- Sarah L., Pullman</p>
+                        <p className="customer">- John Doe, Pullman</p>
                     </div>
                     <div className="testimonial-card">
                         <div className="quote-icon">"</div>
                         <p className="quote">I love supporting local farmers and knowing exactly where my food comes from. The convenience of home delivery is a huge bonus!</p>
-                        <p className="customer">- Michael T., Moscow</p>
+                        <p className="customer">- Jane Doe, Pullman</p>
                     </div>
                     <div className="testimonial-card">
                         <div className="quote-icon">"</div>
                         <p className="quote">As a small farm owner, Fresh Connect has helped us reach more customers than ever. Great platform for both farmers and buyers!</p>
-                        <p className="customer">- Emma R., Green Valley Farm</p>
+                        <p className="customer">- Isaiah D., Green Valley Farm</p>
                     </div>
                 </div>
             </section>

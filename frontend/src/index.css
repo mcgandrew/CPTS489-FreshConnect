@@ -181,6 +181,21 @@ header a {
   text-decoration: underline;
 }
 
+.success {
+  background: #e8f5e9;
+  border: 1px solid #43a047;
+  color: #2e7d32;
+  border-radius: 4px;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .error {
   background: #ffefef;
   border: 1px solid var(--error);
@@ -216,4 +231,51 @@ header a {
 
 .btn-outline:hover {
   background-color: rgba(69, 160, 73, 0.1);
+}
+
+/* Add to your existing CSS */
+
+.cart-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  font-size: 2rem; 
+  margin-left: 2rem; 
+}
+
+.cart-button:hover {
+  color: #45a049;
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #45a049;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
 }
