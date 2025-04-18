@@ -1,4 +1,6 @@
 import { User } from "../models/User.js"
+import { Product } from "../models/Product.js" 
+import { Order } from "../models/Order.js" 
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
@@ -90,3 +92,62 @@ export const logoutUser = async (req, res) => {
         return res.status(500).json({ error: error.message });
     }
 }
+
+// Change user password
+export const changePassword = async (req, res) => {
+    const { currentPassword, newPassword } = req.body;
+    
+    // Validate request data
+    if (!currentPassword || !newPassword) {
+        return res.status(400).json({ error: 'Both current and new password are required' });
+    }
+    
+    try {
+        // Get user from database
+        const user = await User.findById(req.userId);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        
+        // Verify current password
+        const isPasswordCorrect = await bcrypt.compare(currentPassword, user.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json({ error: 'Current password is incorrect' });
+        }
+        
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(newPassword, 12);
+        
+        // Update user with new password
+        user.password = hashedPassword;
+        await user.save();
+        
+        return res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+        console.error('Error changing password:', error);
+        return res.status(500).json({ error: 'An error occurred while changing password' });
+    }
+};
+
+// Delete user account
+export const deleteAccount = async (req, res) => {
+    try {
+        // Find and delete user
+        const user = await User.findByIdAndDelete(req.userId);
+        
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        
+        // Delete user's products
+        await Product.deleteMany({ vendor: user.username });
+        
+        // Delete user's orders too
+        await Order.deleteMany({ userId: req.userId });
+        
+        return res.status(200).json({ message: 'Account deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting account:', error);
+        return res.status(500).json({ error: 'An error occurred while deleting account' });
+    }
+};

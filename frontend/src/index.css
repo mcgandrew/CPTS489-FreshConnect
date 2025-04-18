@@ -13,9 +13,12 @@ body {
 }
 header {
   background: #fff;
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 header .container {
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
@@ -42,8 +45,60 @@ header a {
   transition: color 0.3s;
 }
 
+.admin-nav-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* For center alignment */
+  /* justify-content: flex-end; */ /* For right alignment */
+}
+
+.nav-item-admin {
+  display: inline-block;
+  background-color: #ff5722;
+  color: white;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item-admin::before {
+  content: "🔧"; 
+  margin-right: 6px;
+}
+
+.nav-item-admin:hover {
+  background-color: #e64a19; /* Darker shade on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item-admin:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.admin-nav {
+  width: 100%;
+  display: flex;
+
+  padding: 8px 0;
+  border-top: 1px solid #dadada;
+}
+
 .nav-item:hover {
   color: #4CAF50;
+}
+
+.logo {
+  margin-right: 2rem;
 }
 
 .auth-buttons .btn {
@@ -58,6 +113,7 @@ header a {
   color: white;
   border: none;
   transition: background-color 0.3s;
+  margin-left: 3rem;
 }
 .btn-primary:hover {
   background-color: #3a8a3e;  /* Slightly darker shade for hover */
@@ -233,7 +289,9 @@ header a {
   background-color: rgba(69, 160, 73, 0.1);
 }
 
-/* Add to your existing CSS */
+.user-menu {
+  margin-left: 3rem;
+}
 
 .cart-button {
   position: relative;
@@ -247,7 +305,7 @@ header a {
   justify-content: center;
   transition: color 0.2s;
   font-size: 2rem; 
-  margin-left: 2rem; 
+  margin-left: 3rem; 
 }
 
 .cart-button:hover {

@@ -5,10 +5,18 @@ dotenv.config({ path: './.env' }) // load environment variables
 
 // authorizes the jsonwebtoken
 export const auth = (req, res, next) => {
-    // get current token and validate
-    const token = req.header('x-auth-token')
+    // Check for Authorization header and extract token
+    const authHeader = req.headers.authorization;
+    
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({error: 'No token, authorization denied'});
+    }
+    
+    // Extract the token from the Bearer format
+    const token = authHeader.split(' ')[1];
+    
     if (!token) {
-        return res.status(404).json({error: 'No token, authorization denied'})
+        return res.status(401).json({error: 'No token, authorization denied'})
     }
 
     try {
@@ -18,7 +26,7 @@ export const auth = (req, res, next) => {
         req.userRole = decoded.role 
         next()
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(401).json({error: 'Token is not valid'})
     }
 }
 

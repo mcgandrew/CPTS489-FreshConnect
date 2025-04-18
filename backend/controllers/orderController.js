@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import { Order } from "../models/Order.js"
+import jwt from 'jsonwebtoken';
 
 // get all Orders
 export const getOrders = async(req, res) => {
@@ -32,8 +33,49 @@ export const getOrder = async(req, res) => {
     res.status(200).json(order)
 }
 
+export const getUserOrders = async(req, res) => {
+    try {
+        // Extract token from Authorization header
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ error: 'Authorization token required' });
+        }
+        
+        const token = authHeader.split(' ')[1];
+        
+        // Verify and decode the token
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const userId = decoded.id || decoded._id;
+        
+        // Find orders for this user
+        const orders = await Order.find({ userId: userId }).sort({createdAt: -1});
+        
+        // Send response with user's orders
+        res.status(200).json(orders);
+    } catch (error) {
+        console.error("Error fetching user orders:", error);
+        res.status(401).json({ error: 'Request is not authorized' });
+    }
+}
+
 // create an Order
 export const createOrder = async(req, res) => {
+    // Extract userId from token
+    const authHeader = req.headers.authorization;
+    let userId = null;
+    
+    if (authHeader && authHeader.startsWith('Bearer ')) {
+        try {
+            const token = authHeader.split(' ')[1];
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            userId = decoded.id || decoded._id;
+        } catch (error) {
+            return res.status(401).json({ error: 'Invalid authorization token' });
+        }
+    } else {
+        return res.status(401).json({ error: 'Authorization token required' });
+    }
+    
     // get new Order info
     const {
         status,
@@ -42,8 +84,9 @@ export const createOrder = async(req, res) => {
     } = req.body
 
     try {
-        // create Order
+        // create Order with userId
         const order = await Order.create({
+            userId, // Add this line to include the user ID
             status,
             total,
             items

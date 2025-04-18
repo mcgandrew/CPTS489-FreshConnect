@@ -70,6 +70,8 @@ const Shop = () => {
                 unit: product.unit,
                 vendor: product.vendor,
                 image: product.image,
+                category: product.category,
+                location: product.location,
                 quantity: 1
             };
             

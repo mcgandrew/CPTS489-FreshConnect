@@ -71,9 +71,9 @@ const Contact = () => {
                     <div className="info-section">
                         <h3>🌱 Follow Us</h3>
                         <div className="social-links">
-                            <a href="#" className="social-link">Facebook</a>
-                            <a href="#" className="social-link">Instagram</a>
-                            <a href="#" className="social-link">Twitter</a>
+                            <a href="/"className="social-link">Facebook</a>
+                            <a href="/" className="social-link">Instagram</a>
+                            <a href="/" className="social-link">Twitter</a>
                         </div>
                     </div>
                 </div>

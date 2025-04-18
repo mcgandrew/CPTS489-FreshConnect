@@ -4,14 +4,18 @@ import {
     getOrder,
     createOrder,
     deleteOrder,
-    updateOrder
+    updateOrder,
+    getUserOrders
 } from "../controllers/orderController.js"
 
 // create empty router
 const router = express.Router()
 
-// GET all Orders
+// GET all Orders (admin route)
 router.get("/", getOrders)
+
+// GET orders for the current user
+router.get("/user", getUserOrders)
 
 // GET an Order
 router.get("/:id", getOrder)

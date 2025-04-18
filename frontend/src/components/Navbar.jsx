@@ -51,8 +51,8 @@ const Navbar = () => {
     return (
         <header>
             <div className="container">
-                <Link to="/">
-                    <Logo />
+                <Link to="/" className="logo">
+                    <Logo/>
                 </Link>
                 <nav className="nav-links">
                     <Link to="/shop" className="nav-item">Shop</Link>
@@ -64,14 +64,11 @@ const Navbar = () => {
                         <Link to="/orders" className="nav-item">My Orders</Link>
                         <Link to="/account" className="nav-item">My Account</Link>
                     </> )}
-                    {role === "admin" && ( // only display admin features when user is admin
-                        <Link to="/home" className="nav-item">Admin</Link> 
-                    )}
                 </nav>
                 <div className="auth-buttons">
                     {!role ? (
                         <>
-                            <Link to="/login" className="btn btn-primary">Login / Register</Link>
+                            <Link to="/login" className="btn-primary">Login / Register</Link>
                             <button className="cart-button" onClick={handleCartClick}>
                                 🛒
                                 {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
@@ -92,6 +89,13 @@ const Navbar = () => {
                     }
                 </div>
             </div>
+            {role === "admin" && (
+                <div className="admin-nav">
+                    <div className="admin-nav-container">
+                        <Link to="/admin" className="nav-item-admin">Admin Panel</Link>
+                    </div>
+                </div>
+            )}
         </header>
     )
 }

@@ -15,6 +15,7 @@ import Orders from "./pages/Orders.jsx";
 import Account from "./pages/Account.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Cart from "./pages/Cart.jsx";
+import Admin from "./pages/Admin.jsx"; 
 
 const App = () => {
 
@@ -63,6 +64,10 @@ const App = () => {
                 <Route
                   path="/cart"
                   element={<Cart/>}
+                />
+                <Route
+                  path="/admin"
+                  element={<Admin/>}
                 />
               </Routes>
             </div>

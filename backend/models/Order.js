@@ -2,6 +2,10 @@ import mongoose from "mongoose"
 import { productSchema } from "./Product.js"
 
 const orderSchema = mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     status:{
         type: String,
         enum: ["Pending", "Shipped", "Delivered", "Cancelled"],

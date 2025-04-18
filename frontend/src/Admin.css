@@ -1,0 +1,683 @@
+/* Admin Panel Styles */
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #333;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.admin-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Toolbar */
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-search {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+}
+
+.admin-search input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.2s;
+}
+
+.admin-search input:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+  background-color: #fff;
+}
+
+.admin-search-clear {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Stats */
+.admin-stats {
+  display: flex;
+  gap: 1rem;
+}
+
+.admin-stat-box {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 0.75rem 1.25rem;
+  text-align: center;
+  min-width: 140px;
+  border: 1px solid #eee;
+}
+
+.admin-stat-value {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ff5722;
+}
+
+.admin-stat-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Table Styling */
+.admin-table-container {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: sticky;
+  top: 0;
+}
+
+.admin-table th:hover {
+  background-color: #eee;
+}
+
+.admin-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-no-data {
+  text-align: center;
+  padding: 3rem 1rem !important;
+  color: #999;
+  font-style: italic;
+}
+
+/* Product Cell Styling */
+.admin-product-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-product-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.admin-product-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+/* Category Badges */
+.admin-category-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.admin-category-badge.fruits {
+  background-color: #ffecb3;
+  color: #ff6f00;
+}
+
+.admin-category-badge.vegetables {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.admin-category-badge.dairy {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.admin-category-badge.bakery {
+  background-color: #ffccbc;
+  color: #bf360c;
+}
+
+.admin-category-badge.honey {
+  background-color: #fff9c4;
+  color: #f57f17;
+}
+
+.admin-category-badge.eggs {
+  background-color: #f5f5f5;
+  color: #616161;
+}
+
+/* Action Buttons */
+.admin-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.admin-btn {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-btn-edit {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.admin-btn-edit:hover {
+  background-color: #bbdefb;
+}
+
+.admin-btn-delete {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.admin-btn-delete:hover {
+  background-color: #ffcdd2;
+}
+
+/* Pagination */
+.admin-pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Loading State */
+.admin-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.admin-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.admin-modal {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: modal-appear 0.3s ease-out;
+}
+
+.admin-delete-modal {
+  background-color: #fff;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: modal-appear 0.3s ease-out;
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-modal-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.admin-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #999;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.admin-modal-close:hover {
+  color: #666;
+}
+
+/* Form Styles */
+.admin-edit-form {
+  padding: 1.5rem;
+}
+
+.admin-form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-form-group {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.admin-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.admin-form-group input,
+.admin-form-group select,
+.admin-form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: all 0.2s;
+}
+
+.admin-form-group input:focus,
+.admin-form-group select:focus,
+.admin-form-group textarea:focus {
+  border-color: #ff5722;
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+  background-color: #fff;
+}
+
+.admin-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.admin-btn-cancel {
+  padding: 0.75rem 1.25rem;
+  background-color: #f5f5f5;
+  color: #666;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-btn-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.admin-btn-save {
+  padding: 0.75rem 1.25rem;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-btn-save:hover {
+  background-color: #e64a19;
+}
+
+.admin-btn-delete {
+  padding: 0.75rem 1.25rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* Delete Confirmation Modal */
+.admin-delete-content {
+  padding: 1.5rem;
+}
+
+.admin-delete-warning {
+  color: #f44336;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .admin-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .admin-search {
+    max-width: none;
+  }
+  
+  .admin-stats {
+    justify-content: space-between;
+  }
+  
+  .admin-table th:nth-child(4),
+  .admin-table td:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin-table th:nth-child(5),
+  .admin-table td:nth-child(5) {
+    display: none;
+  }
+  
+  .admin-actions {
+    flex-direction: column;
+  }
+  
+  .admin-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Add these styles to your existing Admin.css file */
+
+/* Tab Navigation */
+.admin-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-tab {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-tab:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-tab.active {
+  font-weight: 600;
+  color: #2e7d32;
+  border-bottom: 3px solid #2e7d32;
+}
+
+/* Order Status Badges */
+.admin-status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.admin-status-badge.pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.admin-status-badge.shipped {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.admin-status-badge.delivered {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.admin-status-badge.cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Order Table Styles */
+.admin-orders-table tr {
+  cursor: pointer;
+}
+
+.admin-orders-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-orders-table tr.expanded {
+  background-color: #f0f8ff;
+}
+
+.admin-order-details-row {
+  background-color: #f9f9f9;
+}
+
+.admin-order-details {
+  padding: 15px;
+}
+
+.admin-order-details h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.admin-order-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-order-item {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-order-item-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.admin-order-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-placeholder-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f1f1f1;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.admin-order-item-details {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.admin-order-item-details h5 {
+  margin: 0 0 5px 0;
+  font-size: 0.95rem;
+}
+
+.admin-order-item-details p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.admin-order-summary {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin-order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-order-summary-row:last-child {
+  border-bottom: none;
+}
+
+.admin-order-summary-row.total {
+  font-weight: bold;
+  color: #2e7d32;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+/* Status Select */
+.admin-status-select {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.admin-status-filter {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.admin-order-filters {
+  display: flex;
+  align-items: center;
+}
