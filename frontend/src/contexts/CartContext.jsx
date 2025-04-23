@@ -8,10 +8,10 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   
-  // Add this flag to prevent localStorage update loops
+  // flag to prevent localStorage update loops
   const isInitialMount = useRef(true);
 
-  // Initialize cart from localStorage on component mount
+  // Initialize cart from localStorage 
   useEffect(() => {
     try {
       const storedCart = localStorage.getItem('cart');
@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
       localStorage.removeItem('cart');
     }
     
-    // Mark initial mount as complete
+    // initial mount is complete
     isInitialMount.current = false;
   }, []);
 
@@ -57,12 +57,13 @@ export const CartProvider = ({ children }) => {
   }, [role]);
 
   const addToCart = (product, quantity = 1) => {
-    // Create a sanitized product object with only necessary fields
+    // product object with only necessary fields
     const cartProduct = {
       _id: product._id,
       name: product.name,
       price: Number(product.price),
       unit: product.unit || 'each',
+      category: product.category || 'Miscellaneous',
       vendor: product.vendor || 'Unknown',
       image: product.image || '',
       quantity: quantity

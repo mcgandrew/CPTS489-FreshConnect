@@ -20,7 +20,7 @@ const Cart = () => {
       setIsCheckingOut(true);
   
       try {
-          // Make sure we always include a category value
+          // always include a category value
           const orderData = {
               status: "Pending",
               total: calculateTotal(),
@@ -28,7 +28,7 @@ const Cart = () => {
                   // Check if console logs show the actual cart item data
                   console.log("Cart item being processed:", item);
                   
-                  // Create object with required fields, ensuring category is always included
+                  // Create object with required fields
                   return {
                       _id: item._id,
                       name: item.name,

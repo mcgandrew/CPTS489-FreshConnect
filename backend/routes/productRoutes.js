@@ -25,5 +25,4 @@ router.delete("/:id", deleteProduct)
 // PATCH a Product
 router.patch("/:id", updateProduct)
 
-// export router to be used by the server
 export default router
