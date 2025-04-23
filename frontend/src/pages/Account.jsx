@@ -96,7 +96,7 @@ const Account = () => {
         
         try {
             // Call API to change password
-            const response = await axios.patch(
+            await axios.patch(
                 'http://localhost:4000/users/password',
                 {
                     currentPassword: passwordData.currentPassword,
@@ -138,7 +138,7 @@ const Account = () => {
         
         try {
             // Call API to delete account
-            const response = await axios.delete(
+            await axios.delete(
                 'http://localhost:4000/users/account',
                 {
                     headers: {
