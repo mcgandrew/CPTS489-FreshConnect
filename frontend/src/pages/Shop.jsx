@@ -4,7 +4,7 @@ import { useNotification } from '../contexts/NotificationContext.jsx';
 import { useCart } from '../contexts/CartContext.jsx';
 import { UserContext } from '../contexts/UserContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // Add this import
+import { jwtDecode } from 'jwt-decode'; 
 import '../Shop.css';
 
 const Shop = () => {
@@ -15,13 +15,13 @@ const Shop = () => {
     const [locationFilter, setLocationFilter] = useState('all');
     const [priceRange, setPriceRange] = useState(50);
     const [isUnlimited, setIsUnlimited] = useState(false);
-    const [currentUsername, setCurrentUsername] = useState(''); // Add this state
+    const [currentUsername, setCurrentUsername] = useState('');
     const { showNotification } = useNotification();
     const { addToCart } = useCart();
     const { role } = useContext(UserContext);
     const navigate = useNavigate();
 
-    // Get current username from token - add this useEffect
+    // Get current username from token 
     useEffect(() => {
         if (role) {
             const token = localStorage.getItem('token');
@@ -36,7 +36,6 @@ const Shop = () => {
         }
     }, [role]);
 
-    // Your existing fetchProducts useEffect stays the same
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -58,11 +57,8 @@ const Shop = () => {
     const categories = ['all', ...new Set(products.map(product => product.category))];
     const locations = ['all', ...new Set(products.map(product => product.location))];
 
-    // Your existing handleAddToCart function stays the same
     const handleAddToCart = (product) => {
         if (role) {
-            // Create a clean product object with only the necessary properties
-            // to prevent potential circular references or excessive data
             const cartProduct = {
                 _id: product._id,
                 name: product.name,
@@ -84,7 +80,7 @@ const Shop = () => {
         }
     };
 
-    // Filter products - just modify this function to add the username check
+    // Filter products 
     const filteredProducts = products.filter(product => {
         // Skip products owned by the current user
         if (currentUsername && product.vendor === currentUsername) {
@@ -97,19 +93,15 @@ const Shop = () => {
             (product.description && product.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
             product.vendor.toLowerCase().includes(searchQuery.toLowerCase());
         
-        // Category filter
         const matchesCategory = categoryFilter === 'all' || product.category === categoryFilter;
         
-        // Location filter
         const matchesLocation = locationFilter === 'all' || product.location === locationFilter;
         
-        // Price filter
         const matchesPrice = isUnlimited || product.price <= priceRange;
         
         return matchesSearch && matchesCategory && matchesLocation && matchesPrice;
     });
 
-    // The rest of your component stays exactly the same
     return (
         <div className="shop-container">
             <div className="shop-header">

@@ -3,13 +3,13 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../contexts/UserContext.jsx';
 import { useNotification } from '../contexts/NotificationContext.jsx';
-import { useCart } from '../contexts/CartContext.jsx'; // Add this import
+import { useCart } from '../contexts/CartContext.jsx'; 
 import '../Orders.css';
 
 const Orders = () => {
-    const { role } = useContext(UserContext); // Remove username as it's not used
+    const { role } = useContext(UserContext); 
     const { showNotification } = useNotification();
-    const { addToCart } = useCart(); // Add this to properly use the cart functionality
+    const { addToCart } = useCart(); 
     const navigate = useNavigate();
     
     const [orders, setOrders] = useState([]);
