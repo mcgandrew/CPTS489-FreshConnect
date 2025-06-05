@@ -7,7 +7,6 @@ const UserProvider = ({ children }) => {
     const [role, setRole] = useState(null); // tracking role constantly
 
     useEffect(() => {
-        // get token and set role
         const token = localStorage.getItem('token');
         if (token) {
             const decodedToken = jwtDecode(token);
@@ -24,7 +23,6 @@ const UserProvider = ({ children }) => {
 
     const logout = async () => {
         try {
-            // Call the backend logout endpoint
             await fetch('http://localhost:4000/users/logout', {
                 method: 'POST',
                 headers: {
@@ -33,7 +31,6 @@ const UserProvider = ({ children }) => {
                 }
             });
             
-            // Clean up client-side regardless of server response
             localStorage.removeItem('token');
             setRole(null);
             
@@ -46,7 +43,6 @@ const UserProvider = ({ children }) => {
             localStorage.removeItem('token');
             setRole(null);
             
-            // Return false if there was an error with the server call
             return false;
         }
     };

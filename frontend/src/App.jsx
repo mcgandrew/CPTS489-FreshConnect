@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <NotificationProvider>
-      <CartProvider> {/* Add the CartProvider here */}
+      <CartProvider> 
         <div className="App">
           <BrowserRouter>
             <ScrollToTop/>

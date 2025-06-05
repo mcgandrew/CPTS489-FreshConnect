@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../contexts/UserContext.jsx';
 import { useNotification } from '../contexts/NotificationContext.jsx';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Add this import
+import axios from 'axios'; 
 import '../Account.css';
 
 const Account = () => {
@@ -26,8 +26,6 @@ const Account = () => {
         try {
             const token = localStorage.getItem('token');
             if (token) {
-                // Simple parsing 
-                // You may need to adjust this based on your actual token format
                 const base64Url = token.split('.')[1];
                 const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
                 const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
@@ -54,7 +52,7 @@ const Account = () => {
         }
     }, [role, navigate]);
     
-    // Mock user info - in a real app, this would come from the backend
+    // Mock user info 
     const userInfo = {
         joinDate: new Date().toLocaleDateString('en-US', {
             year: 'numeric',

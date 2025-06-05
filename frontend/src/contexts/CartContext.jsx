@@ -28,7 +28,6 @@ export const CartProvider = ({ children }) => {
       localStorage.removeItem('cart');
     }
     
-    // initial mount is complete
     isInitialMount.current = false;
   }, []);
 
@@ -57,7 +56,6 @@ export const CartProvider = ({ children }) => {
   }, [role]);
 
   const addToCart = (product, quantity = 1) => {
-    // product object with only necessary fields
     const cartProduct = {
       _id: product._id,
       name: product.name,
@@ -74,7 +72,6 @@ export const CartProvider = ({ children }) => {
       const existingItemIndex = prevItems.findIndex(item => item._id === cartProduct._id);
       
       if (existingItemIndex >= 0) {
-        // Update quantity of existing item
         const updatedItems = [...prevItems];
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],

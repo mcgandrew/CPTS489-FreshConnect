@@ -20,7 +20,6 @@ export const auth = (req, res, next) => {
     }
 
     try {
-        // decode and set token
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         req.userId = decoded.id 
         req.userRole = decoded.role 
@@ -30,9 +29,7 @@ export const auth = (req, res, next) => {
     }
 }
 
-// checks if the user is an admin
 export const isAdmin = (req, res, next) => {
-    // validate admin priviledge
     if (req.userRole !== 'admin') {
         return res.status(401).json({ message: 'Access denied. Admins only.' })
     }

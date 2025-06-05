@@ -109,7 +109,7 @@ header a {
 }
 
 .btn-primary {
-  background-color: var(--primary);  /* Use the variable instead of hardcoded color */
+  background-color: var(--primary); 
   color: white;
   border: none;
   transition: background-color 0.3s;
@@ -225,7 +225,7 @@ header a {
 .toggle-form {
   background: none;
   border: none;
-  color: var(--primary);  /* This is already using the variable */
+  color: var(--primary);  
   cursor: pointer;
   font-weight: 600;
   padding: 0;
@@ -264,7 +264,7 @@ header a {
 .sell-btn-primary {
   color: white;
   text-decoration: none;
-  background-color: var(--primary);  /* Use the variable here */
+  background-color: var(--primary);  
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
   font-weight: 600;
